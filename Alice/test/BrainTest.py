@@ -12,7 +12,7 @@ class TimeEstimateTest:
         @Brain.TimeEstimate(without_any_args=True)
         def on_OK_clicked():
             with Brain.TimeEstimate(block_name="print OK"):
-                print("btn_OK is clicked")
+                LOG.debug("btn_OK is clicked")
 
         app = QApplication(sys.argv)
         window = QMainWindow()
@@ -32,7 +32,7 @@ class TimeEstimateTest:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
-    # logging.basicConfig(level=logging.INFO)
+    # logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
     bt = TimeEstimateTest()
     bt.test_QtGUI()
