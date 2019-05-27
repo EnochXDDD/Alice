@@ -1,5 +1,7 @@
 import logging
+import sys
 import time
+import traceback
 from functools import partial
 LOG = logging.getLogger(__name__)
 
@@ -33,3 +35,13 @@ class TimeEstimate:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self._time_list[1] = time.perf_counter()
         LOG.info("time of {}: {}".format(self._block_name, self._time_list[1] - self._time_list[0]))
+
+
+class ExceptionCatch:
+    def __init__(self, handler=partial(print, file=sys.stderr)):
+        self._handler = handler
+        sys.excepthook = self.__call__
+
+    def __call__(self, etype, value, tb):
+        msg = "".join(traceback.format_exception(etype, value, tb))
+        self._handler(msg)
