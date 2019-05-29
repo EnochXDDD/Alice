@@ -59,7 +59,6 @@ class ExceptionCatchTest:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    # logging.basicConfig(level=logging.INFO)
     # bt = TimeEstimateTest()
     bt = ExceptionCatchTest()
     bt.test_QtGUI()
