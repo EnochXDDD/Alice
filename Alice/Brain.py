@@ -22,10 +22,11 @@ class TimeEstimate:
 
         def wrapper(*args, **kwargs):
             LOG.debug("args: {}, kwargs: {}".format(args, kwargs))
-            if not self._without_any_args:
-                self._func = partial(self._func, *args, **kwargs)
             self._time_list[0] = time.perf_counter()
-            result = self._func()
+            if not self._without_any_args:
+                result = self._func(*args, **kwargs)
+            else:
+                result = self._func()
             self._time_list[1] = time.perf_counter()
             time_diff = self._time_list[1] - self._time_list[0]
             LOG.debug("time of {}: {}".format(self._block_name, time_diff))

@@ -8,22 +8,26 @@ Brain = SourceFileLoader("Brain", "../Brain.py").load_module()
 
 class TimeEstimateTest:
     def test_QtGUI(self):
-        @Brain.TimeEstimate(without_any_args=True)
+        @Brain.TimeEstimate(handler=LOG.debug)
+        def multiArgs(a, b, c):
+            LOG.debug("Ans: {}".format(a + b + c))
+
+        @Brain.TimeEstimate(without_any_args=True, handler=LOG.debug)
         def on_OK_clicked():
-            with Brain.TimeEstimate(block_name="print OK"):
+            with Brain.TimeEstimate(block_name="print OK", handler=LOG.debug):
                 LOG.debug("btn_OK is clicked")
+            multiArgs(1, 2, 3)
 
         app = QApplication(sys.argv)
         window = QMainWindow()
         window.setFixedSize(640, 480)
 
-        with Brain.TimeEstimate(block_name="add button"):
-            widget = QWidget(parent=window)
-            layout = QVBoxLayout()
-            btn_OK = QPushButton("OK", parent=widget)
-            btn_OK.clicked.connect(on_OK_clicked)
-            layout.addWidget(btn_OK)
-            widget.setLayout(layout)
+        widget = QWidget(parent=window)
+        layout = QVBoxLayout()
+        btn_OK = QPushButton("OK", parent=widget)
+        btn_OK.clicked.connect(on_OK_clicked)
+        layout.addWidget(btn_OK)
+        widget.setLayout(layout)
 
         window.setCentralWidget(widget)
         window.show()
@@ -59,7 +63,7 @@ class ExceptionCatchTest:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    # bt = TimeEstimateTest()
-    bt = ExceptionCatchTest()
+    bt = TimeEstimateTest()
+    # bt = ExceptionCatchTest()
     bt.test_QtGUI()
     # bt.test_withRaise()
