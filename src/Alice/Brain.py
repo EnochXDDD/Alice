@@ -56,3 +56,8 @@ class ExceptionCatch:
     def __call__(self, etype, value, tb):
         msg = "".join(traceback.format_exception(etype, value, tb))
         self._handler(msg)
+
+
+class ThreadObject:
+    def __init__(self):
+        pass
