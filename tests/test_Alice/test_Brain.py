@@ -1,9 +1,8 @@
 import sys
 import logging
-from importlib.machinery import SourceFileLoader
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton
+from Alice import Brain
 LOG = logging.getLogger(__name__)
-Brain = SourceFileLoader("Brain", "../Brain.py").load_module()
 
 
 class TimeEstimateTest:
@@ -63,7 +62,10 @@ class ExceptionCatchTest:
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    bt = TimeEstimateTest()
-    # bt = ExceptionCatchTest()
+
+    # bt = TimeEstimateTest()
+    # bt.test_QtGUI()
+
+    bt = ExceptionCatchTest()
     bt.test_QtGUI()
     # bt.test_withRaise()

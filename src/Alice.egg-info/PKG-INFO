@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: Alice
+Version: 0.0.0
+Summary: little assistant tools
+Home-page: UNKNOWN
+Author: EnochXDDD
+Author-email: wumf129@gmail.com
+License: MIT
+Description: # Alice
+        little assistant tools
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7

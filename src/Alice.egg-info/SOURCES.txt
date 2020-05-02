@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+src/Alice/Brain.py
+src/Alice/__init__.py
+src/Alice.egg-info/PKG-INFO
+src/Alice.egg-info/SOURCES.txt
+src/Alice.egg-info/dependency_links.txt
+src/Alice.egg-info/not-zip-safe
+src/Alice.egg-info/top_level.txt
+tests/test_Alice/__init__.py
+tests/test_Alice/test_Brain.py
