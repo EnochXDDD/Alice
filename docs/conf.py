@@ -20,6 +20,7 @@
 project = 'Alice'
 copyright = '2020, EnochXDDD'
 author = 'EnochXDDD'
+master_doc = 'index'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.0'
