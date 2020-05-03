@@ -2,12 +2,18 @@ Metadata-Version: 1.1
 Name: Alice
 Version: 0.0.0
 Summary: little assistant tools
-Home-page: UNKNOWN
+Home-page: https://github.com/EnochXDDD/Alice
 Author: EnochXDDD
 Author-email: wumf129@gmail.com
 License: MIT
-Description: # Alice
-        little assistant tools
+Description: Alice (little assistant tool)
+        ==============================
+        .. image:: https://readthedocs.org/projects/devtools/badge/?version=latest
+            :target: https://devtools.readthedocs.io/en/latest/?badge=latest
+            :alt: Documentation Status
         
-Platform: UNKNOWN
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3.7
