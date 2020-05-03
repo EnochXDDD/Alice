@@ -10,7 +10,7 @@ python:
 # command to install dependencies
 install:
 before_script:
-    - pip upgrade setuptools
+    - pip install -U setuptools
     - pip install tox-travis
     - pip install PyQt5
 # command to run tests
