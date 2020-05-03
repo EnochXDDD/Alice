@@ -6,7 +6,7 @@ LOG = logging.getLogger(__name__)
 
 
 class TimeEstimateTest:
-    def test_QtGUI(self):
+    def test_QtGUI(self, exec_on=False):
         @Brain.TimeEstimate(handler=LOG.debug)
         def multiArgs(a, b, c):
             LOG.debug("Ans: {}".format(a + b + c))
@@ -30,11 +30,14 @@ class TimeEstimateTest:
 
         window.setCentralWidget(widget)
         window.show()
-        app.exec_()
+        if exec_on:
+            app.exec_()
+        else:
+            btn_OK.click()
 
 
 class ExceptionCatchTest:
-    def test_QtGUI(self):
+    def test_QtGUI(self, exec_on=False):
         Brain.ExceptionCatch(handler=LOG.error)
 
         def on_OK_clicked():
@@ -53,20 +56,23 @@ class ExceptionCatchTest:
 
         window.setCentralWidget(widget)
         window.show()
-        app.exec_()
+        if exec_on:
+            app.exec_()
+        else:
+            btn_OK.click()
 
 
-def test_TimeEstimate():
+def test_TimeEstimate(exec_on=False):
     bt = TimeEstimateTest()
-    bt.test_QtGUI()
+    bt.test_QtGUI(exec_on=exec_on)
 
 
-def test_ExceptionCatch():
+def test_ExceptionCatch(exec_on=False):
     bt = ExceptionCatchTest()
-    bt.test_QtGUI()
+    bt.test_QtGUI(exec_on=exec_on)
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    test_TimeEstimate()
-    test_ExceptionCatch()
+    test_TimeEstimate(exec_on=True)
+    test_ExceptionCatch(exec_on=True)
