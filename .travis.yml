@@ -12,6 +12,6 @@ install:
 before_script:
     - pip install -U setuptools
     - pip install tox-travis
-    - pip install PyQt5<5.10
+    - pip install PyQt5==5.9.2
 # command to run tests
 script: tox
