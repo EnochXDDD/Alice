@@ -30,14 +30,10 @@ class TimeEstimateTest:
 
         window.setCentralWidget(widget)
         window.show()
-        sys.exit(app.exec_())
+        app.exec_()
 
 
 class ExceptionCatchTest:
-    def test_withRaise(self):
-        Brain.ExceptionCatch(handler=LOG.error)
-        raise Exception("exception test")
-
     def test_QtGUI(self):
         Brain.ExceptionCatch(handler=LOG.error)
 
@@ -57,15 +53,20 @@ class ExceptionCatchTest:
 
         window.setCentralWidget(widget)
         window.show()
-        sys.exit(app.exec_())
+        app.exec_()
+
+
+def test_TimeEstimate():
+    bt = TimeEstimateTest()
+    bt.test_QtGUI()
+
+
+def test_ExceptionCatch():
+    bt = ExceptionCatchTest()
+    bt.test_QtGUI()
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-
-    # bt = TimeEstimateTest()
-    # bt.test_QtGUI()
-
-    bt = ExceptionCatchTest()
-    bt.test_QtGUI()
-    # bt.test_withRaise()
+    test_TimeEstimate()
+    test_ExceptionCatch()

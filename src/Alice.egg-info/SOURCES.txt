@@ -41,3 +41,5 @@ src/Alice/__pycache__/Brain.cpython-37.pyc
 src/Alice/__pycache__/__init__.cpython-37.pyc
 tests/test_Alice/__init__.py
 tests/test_Alice/test_Brain.py
+tests/test_Alice/__pycache__/__init__.cpython-37.pyc
+tests/test_Alice/__pycache__/test_Brain.cpython-37-pytest-5.4.1.pyc
